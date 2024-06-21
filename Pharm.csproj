@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Datebase\Remedies\" />
+    <Folder Include="Datebase\Users\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>
