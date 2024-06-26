@@ -10,5 +10,6 @@ namespace Pharm.Service
     {
         public static readonly string UserDbPath = @"..\..\..\Datebase\Users";
         public static readonly string UserDateDbPath = "";
+        public static readonly string UserJsonPath = @"..\..\..\Datebase\Users.json";
     }
 }

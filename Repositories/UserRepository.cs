@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pharm.Enums;
+using Newtonsoft.Json;
 
 namespace Pharm.Repositories
 {
@@ -14,9 +15,12 @@ namespace Pharm.Repositories
     {
         public User Create(User user)
         { 
-            string fileName = MethodService.GetUserPath(user.Id);
-            string userData = user.ToString();
-            File.WriteAllText(fileName, userData);
+            string json = File.ReadAllText(Service.Constants.UserJsonPath);
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(json);
+            users.Add(user);
+
+            string result = JsonConvert.SerializeObject(users);
+            File.WriteAllText(Service.Constants.UserJsonPath, result); 
             return user;
         }
 
@@ -43,6 +47,10 @@ namespace Pharm.Repositories
                 }
             }
             return null;
+        }
+        public void Print()
+        {
+            Console.WriteLine("Print qilindi");
         }
     }
 }

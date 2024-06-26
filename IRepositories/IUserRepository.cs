@@ -11,5 +11,6 @@ namespace Pharm.IRepositories
     {
         User Create (User user);
         User Login (string username, string password);
+        public void Print();
     }
 }
